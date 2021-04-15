@@ -1,6 +1,5 @@
 package net.code.java;
 
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
@@ -24,14 +23,85 @@ import org.eclipse.jdt.core.dom.SwitchStatement;
 import org.eclipse.jdt.core.dom.TagElement;
 import org.eclipse.jdt.core.dom.VariableDeclarationFragment;
 
-
-interface Drawable{  
+interface Drawable
+{  
     public void draw();  
 }  
 
-interface Addable{  
+interface Addable
+{  
     int add(int a,int b);  
 }  
+
+abstract class Bike{  
+	  abstract void run();  
+}  
+class Honda4 extends Bike{  
+	void run(){System.out.println("running safely");}  
+	public static void main(String args[]){  
+	 Bike obj = new Honda4();  
+	 obj.run();  
+	}  
+}  
+
+final class TestFinalClass
+{
+	private int ThisIsAmethodInsideTheFinalClass()
+	{
+		return 0;
+	}
+}
+
+class PointExtended2 extends PointExtended
+{
+	private Point ReturnPoint () 
+	{		
+		/* A Point is explicitly created
+	    using newInstance: */
+		 Point p = null;
+		 try {
+		     p = (Point)Class.forName("Point").newInstance();
+		 } catch (Exception e) {
+		     System.out.println(e);
+		 }
+		
+		 /* An array is implicitly created 
+		    by an array constructor: */
+		 Point a[] = { new Point(0,0), new Point(1,1) };
+		
+		 /* Strings are implicitly created 
+		    by + operators: */
+		 System.out.println("p: " + p);
+		 System.out.println("a: { " + a[0] + ", " + a[1] + " }");
+		
+		 /* An array is explicitly created
+		    by an array creation expression: */
+		 String sa[] = new String[2];
+		 sa[0] = "he"; sa[1] = "llo";
+		 System.out.println(sa[0] + sa[1]);
+		 
+		 return p;
+	}	
+}
+
+class PointExtended extends Point
+{
+	int v;
+}
+
+class Point {
+    int x, y;
+    Point() { System.out.println("default"); }
+    Point(int x, int y) { this.x = x; this.y = y; }
+
+    /* A Point instance is explicitly created at 
+       class initialization time: */
+    static Point origin = new Point(0,0);
+
+    /* A String can be implicitly created 
+       by a + operator: */
+    public String toString() { return "(" + x + "," + y + ")"; }
+}
 
 public class HelloWorld {
 	int count = 0;
@@ -172,8 +242,7 @@ public class HelloWorld {
 			
 	 /* esto es un comentario
 	   bastante fenomenal
-	  */
-			
+	  */		
 		
 	}
 	
@@ -193,8 +262,27 @@ public class HelloWorld {
 		return 2;		
 	}
 	
+	static private int givemeatwo(String test)
+	{
+		return 2;		
+	}
+	
+	static private int givemeatwo(int test)
+	{
+		return 2;		
+	}
+	
+	
+	static private String givemeatwostring()
+	{
+		return "2";		
+	}
+	
 	static private int returntwo()
 	{
+		int testint = givemeatwo("test");
+		int testint2 = givemeatwo(2);
+		String test = givemeatwostring();
 		return givemeatwo();		
 	}
 	
