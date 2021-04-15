@@ -262,7 +262,7 @@ public class HelloWorld {
 		return 2;		
 	}
 	
-	static private int givemeatwo(String test)
+	static private int givemeatwo(String test, int test2)
 	{
 		return 2;		
 	}
@@ -280,7 +280,7 @@ public class HelloWorld {
 	
 	static private int returntwo()
 	{
-		int testint = givemeatwo("test");
+		int testint = givemeatwo("test", 2);
 		int testint2 = givemeatwo(2);
 		String test = givemeatwostring();
 		return givemeatwo();		
